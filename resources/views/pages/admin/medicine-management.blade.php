@@ -103,6 +103,7 @@
                                             <div class="w-100 mw-200px">
                                                 <!--begin::Select2-->
                                                 <select class="form-select form-select-solid" id="expiry_filter" data-control="select2" data-hide-search="true" data-placeholder="Expiry Status">
+                                                    <option disabled>Expiry Status</option>
                                                     <option value="all">All</option>
                                                     <option value="expired">Expired</option>
                                                     <option value="1_month">Expires in 1 Month</option>
@@ -112,10 +113,20 @@
                                                 </select>
                                                 <!--end::Select2-->
                                             </div>
+                                            <div class="w-100 mw-200px">
+                                                <!--begin::Select2-->
+                                                <select class="form-select form-select-solid" id="rack-location" data-control="select2" data-hide-search="true" data-placeholder="Location">
+                                                    <option disabled>Location</option>
+                                                    <option value="all">All</option>
+                                                    <option value="rack1">Rack 1</option>
+                                                    <option value="rack2">Rack 2</option>
+                                                    <option value="rack3">Rack 2</option>
+                                                    <option value="rack4">Rack 2</option>
+                                                    <option value="rack5">Rack 2</option>
+                                                </select>
+                                                <!--end::Select2-->
+                                            </div>
 
-                                            <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_staff">
-                                                Add Medicine
-                                            </a>
                                         </div>
                                     </div>
 
@@ -128,7 +139,7 @@
                                                     <th class="min-w-70px">Medicine Name</th>
                                                     <th class="text-end min-w-100px">Potency/Strength</th>
                                                     <th class="text-end min-w-70px">Stock Quantity</th>
-                                                    <th class="text-end min-w-100px">Reorder Level</th>
+                                                    <th class="text-end min-w-100px">Location</th>
                                                     <th class="text-end min-w-70px">MRP</th>
                                                     <th class="text-end min-w-70px">Discount</th>
                                                     <th class="text-end min-w-70px">Total</th>
@@ -152,7 +163,7 @@
                                                         <span class="fw-bold">150</span>
                                                     </td>
                                                     <td class="text-end pe-0">
-                                                        <span class="fw-bold">50</span>
+                                                        <span class="fw-bold">Rack 2</span>
                                                     </td>
                                                     <td class="text-end pe-0">
                                                         <span class="fw-bold">$3.00</span>
@@ -231,7 +242,34 @@
                                                     <input type="text" class="form-control form-control-solid"
                                                         name="medicine_name" placeholder="e.g., Arnica Montana" required>
                                                 </div>
-                                                <div class="col-md-3">
+
+                                                <div class="col-md-1">
+                                                    <label class="fs-5 fw-semibold mb-2"> Size </label>
+                                                    <input type="text" class="form-control form-control-solid"
+                                                        name="dosage" placeholder="e.g.,100 ml">
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <label class="fs-5 fw-semibold mb-0">Unit Type</label>
+                                                        <button type="button" class="btn btn-sm"
+                                                            style="color: #b02a00;padding: 0px 7px;"
+                                                            data-bs-toggle="modal" data-bs-target="#kt_modal_unit_type_add">
+                                                            <i class="fas fa-plus add-select"></i> Add
+                                                        </button>
+                                                    </div>
+                                                    <select class="form-select form-select-solid" id="unit-type" data-control="select2"
+                                                        data-placeholder="Unit Type" name="unit">
+                                                        <option value="" disabled selected>Select Unit Type</option>
+                                                        <option value="dilution">Dilution</option>
+                                                        <option value="mother_tincture">Mother Tincture</option>
+                                                        <option value="drops">Drops</option>
+                                                        <option value="syrups">Syrups/ Tonic</option>
+                                                        <option value="external_app">External App</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-md-3 potency-hide">
                                                     <div class="d-flex justify-content-between align-items-center mb-2">
                                                         <label class="fs-5 fw-semibold mb-0">Potency/Strength</label>
                                                         <button type="button" class="btn btn-sm"
@@ -251,24 +289,6 @@
                                                     </select>
                                                 </div>
 
-
-                                                <div class="col-md-2">
-                                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                                        <label class="fs-5 fw-semibold mb-0">Unit Type</label>
-                                                        <button type="button" class="btn btn-sm"
-                                                            style="color: #b02a00;padding: 0px 7px;"
-                                                            data-bs-toggle="modal" data-bs-target="#kt_modal_unit_type_add">
-                                                            <i class="fas fa-plus add-select"></i> Add
-                                                        </button>
-                                                    </div>
-                                                    <select class="form-select form-select-solid" data-control="select2"
-                                                        data-placeholder="Unit Type" name="unit">
-                                                        <option value="" disabled selected></option>
-                                                        <option value="30C">Tablet</option>
-                                                        <option value="200C">Bottle</option>
-                                                        <option value="1M">Drops</option>
-                                                    </select>
-                                                </div>
 
 
                                             </div>
@@ -784,9 +804,22 @@
                                     <div class="form-group d-flex flex-wrap align-items-center gap-5">
                                         <!-- Input for Unit Type Name -->
                                         <div class="w-200 w-md-400px">
-                                            <input type="text" class="form-control mw-200 w-400px"
-                                                name="new_unit_type_name" placeholder="Unit Type Name">
+                                            <div class="row">
+                                                <div class="col-md-7">
+                                                    <input type="text" class="form-control mw-100 w-250px"
+                                                    name="new_unit_type_name" placeholder="Unit Type Name">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input class="form-check-input mt-3" type="checkbox" value="Monday" id="monday" data-gtm-form-interact-field-id="0">
+                                                </div>
+                                                <div class="col-md-4 mt-3">
+                                                    <label class="form-check-label" for="monday">Add it in unit</label>
+                                                </div>
+                                            </div>
+
+
                                         </div>
+
 
                                         <button type="button" data-repeater-delete=""
                                             class="btn btn-sm btn-icon btn-light-success">
@@ -803,6 +836,10 @@
                                 <div class="d-flex align-items-center justify-content-between p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
                                     <div class="fw-semibold">
                                         <span class="fs-6 text-gray-800 me-2">Unit Type 1</span>
+                                        <i class="ki-duotone ki-chart fs-2x pt-4" style="position: relative;top: 5px;">
+                                            <i class="path1"></i>
+                                            <i class="path2"></i>
+                                        </i>
                                     </div>
                                     <button type="button" class="btn btn-sm btn-icon btn-active-color-primary">
                                         <i class="ki-outline ki-trash fs-3"></i>
@@ -978,6 +1015,9 @@
         }, 10000); // 10 seconds
     });
 });
+
+
+
 
 
 </script>
