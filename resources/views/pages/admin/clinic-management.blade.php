@@ -176,10 +176,6 @@
                                         <label class="fs-5 fw-semibold mb-2">Email</label>
                                         <input type="mail" class="form-control form-control-solid" name="doctor_email" >
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="required fs-5 fw-semibold mb-2">Role</label>
-                                        <input type="text" class="form-control form-control-solid" name="doctor_role" placeholder="e.g., Junior Doctor">
-                                    </div>
                                 </div>
 
                                 <div class="row mb-7">
@@ -319,10 +315,6 @@
                                 </div>
 
                                 <div class="row mb-7">
-                                    <div class="col-md-6">
-                                        <label class="required fs-5 fw-semibold mb-2">Role</label>
-                                        <input type="text" class="form-control form-control-solid" name="receptionist_role" placeholder="e.g., Pharmacy Coordinator">
-                                    </div>
                                     <div class="col-md-6">
                                         <label class="fs-5 fw-semibold mb-2">Staff ID</label>
                                         <input type="text" class="form-control form-control-solid" name="receptionist_employee_id" placeholder="">
