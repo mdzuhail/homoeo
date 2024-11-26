@@ -255,7 +255,7 @@
 
                           <!--begin::Menu item-->
                           <div class="menu-item px-5">
-                              <a href="{{ url('login') }}" class="menu-link px-5">
+                              <a href="{{ url('/') }}" class="menu-link px-5">
                                   Sign Out
                               </a>
                           </div>

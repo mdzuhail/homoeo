@@ -100,15 +100,15 @@
                                         </div>
 
                                         <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
-                                            <div class="w-100 mw-150px">
+                                            <div class="w-100 mw-200px">
                                                 <!--begin::Select2-->
-                                                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
-                                                    data-placeholder="Status" data-kt-ecommerce-product-filter="status">
-                                                    <option></option>
+                                                <select class="form-select form-select-solid" id="expiry_filter" data-control="select2" data-hide-search="true" data-placeholder="Expiry Status">
                                                     <option value="all">All</option>
-                                                    <option value="active">Active</option>
-                                                    <option value="inactive">Inactive</option>
-                                                    <option value="suspend">Suspend</option>
+                                                    <option value="expired">Expired</option>
+                                                    <option value="1_month">Expires in 1 Month</option>
+                                                    <option value="3_months">Expires in 3 Months</option>
+                                                    <option value="6_months">Expires in 6 Months</option>
+                                                    <option value="1_year">Expires in 1 Year</option>
                                                 </select>
                                                 <!--end::Select2-->
                                             </div>

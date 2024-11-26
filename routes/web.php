@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/patient', action: function () {
     return view(view: '/pages/application');
 });
 
@@ -14,7 +14,7 @@ Route::get('/create-medicine', function () {
     return view(view: '/pages/create-medicine');
 });
 
-Route::get('/login', function () {
+Route::get('/', function () {
     return view(view: '/authentication/sign-in');
 });
 
