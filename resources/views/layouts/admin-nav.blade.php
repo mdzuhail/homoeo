@@ -53,10 +53,35 @@
 
 
                     <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <a class="menu-link {{ Request::is('admin/patients') ? 'active' : '' }}" href="{{ url('admin/patients') }}">
-                            <span class="menu-title">Patients</span>
-                        </a>
+
+                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
+                        class="menu-item">
+                        <span class="menu-link">
+                            <span class="menu-title">Patients & Medicines</span>
+                            <span class="menu-arrow"></span>
+                        </span>
+                        <div class="menu-sub menu-sub-dropdown px-lg-2 py-lg-4 w-150px w-lg-175px" style="">
+                            <div class="menu-item">
+                                <a class="menu-link  {{ Request::is('admin/patients') ? 'active' : '' }}" href="{{ url('admin/patients') }}">
+                                    <span class="menu-icon"><i class="ki-outline ki-chart-simple fs-3"></i></span>
+                                    <span class="menu-title">Follow Up Patients</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-link {{ Request::is('/create-patient') ? 'active' : '' }}" href="{{ url('/create-patient') }}">
+                                    <span class="menu-icon"><i class="ki-outline ki-share fs-3"></i></span>
+                                    <span class="menu-title">New Patients
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-link {{ Request::is('/admin/medicine-requests') ? 'active' : '' }}" href="{{ url('/admin/medicine-requests') }}">
+                                    <span class="menu-icon"><i class="ki-outline ki-share fs-3"></i></span>
+                                    <span class="menu-title">Medicine Requests
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <!--end:Menu item-->
 

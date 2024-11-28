@@ -74,12 +74,21 @@
                         </li>
                         <!--end:::Tab item-->
 
+                         <!--begin:::Tab item-->
+                        <li class="nav-item">
+                            <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_supplier">
+                                Container Details</a>
+                        </li>
+                        <!--end:::Tab item-->
+
                         <!--begin:::Tab item-->
                         <li class="nav-item">
                             <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_supplier">Supplier
                                 Details</a>
                         </li>
                         <!--end:::Tab item-->
+
+
 
 
                     </ul>
@@ -449,6 +458,143 @@
                                     <!--begin::Card header-->
                                     <div class="card-header">
                                         <div class="card-title">
+                                            <h2>Container</h2>
+                                        </div>
+                                    </div>
+                                    <!--end::Card header-->
+
+                                    <!--begin::Card body-->
+                                    <!--begin::Card body-->
+                                    <div class="card-body pt-0">
+                                        <!--end::Label-->
+
+                                        <!--begin::Form group-->
+                                        <div class="form-group">
+                                            <div class="d-flex flex-column gap-3">
+                                                <div class="form-group d-flex flex-wrap align-items-center gap-5">
+                                                    <!--begin::Select2-->
+                                                    <div class="w-100 w-md-200px">
+                                                        <input type="text" class="form-control mw-100 w-200px"
+                                                            name="container_name" placeholder="Container Name" required>
+                                                    </div>
+                                                    <!--end::Select2-->
+
+                                                     <!--begin::Select2-->
+                                                     <div class="w-150 w-md-250px">
+                                                        <input type="text" class="form-control mw-150 w-250px"
+                                                            name="container_notes" placeholder="Container Notes" required>
+                                                    </div>
+                                                    <!--end::Select2-->
+                                                    <button type="button" data-repeater-delete=""
+                                                        class="btn btn-sm btn-icon btn-light-success">
+                                                        <i class="ki-outline ki-check fs-1"></i>
+
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card mt-5">
+                                            <div class="card-body pt-0">
+                                                <!-- Supplier Table -->
+                                                <!--begin::Table-->
+                                                <table class="table align-middle table-row-dashed fs-6 gy-5 dt-design">
+                                                    <thead>
+                                                        <tr
+                                                            class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
+                                                            <th class="min-w-10px">No</th>
+                                                            <th class="min-w-100px">Container Name</th>
+                                                            <th class="text-start min-w-100px">Container Notes</th>
+                                                            <th class="text-end min-w-70px">Created At</th>
+                                                            <th class="text-end min-w-100px">Status</th>
+                                                            <th class="text-end min-w-70px">Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="fw-semibold text-gray-600">
+                                                        <tr>
+                                                            <td class="text-start pe-0">
+                                                                <span class="fw-bold">1</span>
+                                                            </td>
+                                                            <td>
+                                                                <div class="d-flex align-items-center">
+
+                                                                    <div class="ms-5">
+                                                                        <!--begin::Title-->
+                                                                        <a href="#" class="fw-bold">2 Dram</a>
+                                                                        <!--end::Title-->
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-start pe-0">
+                                                                <span class="fw-bold">No Notes Available</span>
+                                                            </td>
+                                                            <td class="text-end">
+                                                                <span class="fw-bold">2024, Nov 24</span>
+                                                            </td>
+                                                            <td class="text-end pe-0" data-order="Published">
+                                                                <div class="badge badge-light-danger">Inactive</div>
+                                                                <!--end::Badges-->
+                                                            </td>
+                                                            <td class="text-end">
+                                                                <a href="#"
+                                                                    class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
+                                                                    data-kt-menu-trigger="click"
+                                                                    data-kt-menu-placement="bottom-end">
+                                                                    Actions
+                                                                    <i class="ki-outline ki-down fs-5 ms-1"></i>
+                                                                </a>
+                                                                <!--begin::Menu-->
+                                                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
+                                                                    data-kt-menu="true">
+                                                                    <!--begin::Menu item-->
+                                                                    <div class="menu-item px-3">
+                                                                        <a href="#" class="menu-link px-3">
+                                                                            Edit
+                                                                        </a>
+                                                                    </div>
+                                                                    <!--end::Menu item-->
+
+                                                                    <!--begin::Menu item-->
+                                                                    <div class="menu-item px-3">
+                                                                        <a href="#" class="menu-link px-3"
+                                                                            data-kt-ecommerce-product-filter="delete_row">
+                                                                            Delete
+                                                                        </a>
+                                                                    </div>
+                                                                    <!--end::Menu item-->
+                                                                </div>
+                                                                <!--end::Menu-->
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <!--end::Table-->
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!--end::Card header-->
+                                </div>
+                                <!--end::Inventory-->
+
+
+
+                            </div>
+
+
+                        </div>
+                        <!--end::Card header-->
+
+                         <!--begin::Tab pane-->
+
+                         <div class="tab-pane fade" id="kt_supplier" role="tab-panel">
+                            <div class="d-flex flex-column gap-7 gap-lg-10">
+
+                                <!--begin::Inventory-->
+                                <div class="card card-flush py-4">
+                                    <!--begin::Card header-->
+                                    <div class="card-header">
+                                        <div class="card-title">
                                             <h2>Inventory</h2>
                                         </div>
                                     </div>
@@ -468,13 +614,13 @@
                                                     <!--begin::Select2-->
                                                     <div class="w-100 w-md-200px">
                                                         <input type="text" class="form-control mw-100 w-200px"
-                                                            name="sup_name" placeholder="Supplier Name">
+                                                            name="sup_name" placeholder="Supplier Name" required>
                                                     </div>
                                                     <!--end::Select2-->
 
                                                     <!--begin::Input-->
                                                     <input type="text" class="form-control mw-100 w-200px"
-                                                        name="sup_phone" placeholder="Phone">
+                                                        name="sup_phone" placeholder="Phone" required>
                                                     <!--end::Input-->
 
                                                     <!--begin::Input-->
@@ -485,6 +631,11 @@
                                                     <!--begin::Input-->
                                                     <input type="email" class="form-control mw-100 w-200px"
                                                         name="sup_mail" placeholder="Email">
+                                                    <!--end::Input-->
+
+                                                    <!--begin::Input-->
+                                                    <input type="notes" class="form-control mw-150 w-250px"
+                                                        name="sup_notes" placeholder="Notes">
                                                     <!--end::Input-->
 
                                                     <button type="button" data-repeater-delete=""

@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
+
 // Function to handle modal close with SweetAlert confirmation
 function handleModalClose(event) {
     event.preventDefault();

@@ -4,124 +4,302 @@
 @section('content')
     <div class="p-5">
 
-        <div id="" class="app-content  app-content-stretch ">
+        <div id="billing-page" class="billing-page app-content app-content-stretch ">
 
 
             <div id="" class="app-container  container-fluid ">
-                <div class="card card-flush">
-                    <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+
+
+                <div class="card ">
+                    <!--begin::Card header-->
+                    <div class="card-header card-header-stretch border-bottom border-gray-200">
+                        <!--begin::Title-->
                         <div class="card-title">
                             <div class="d-flex align-items-center position-relative my-1">
                                 <i class="ki-outline ki-magnifier fs-3 position-absolute ms-4"></i> <input type="text"
-                                    data-kt-ecommerce-product-filter="search"
-                                    class="form-control form-control-solid w-250px ps-12" placeholder="Search Staff">
+                                    class="form-control form-control-solid w-250px ps-12" placeholder="Search Billing History">
                             </div>
                         </div>
+                        <!--end::Title-->
 
-                        <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
-                            <div class="w-100 mw-150px">
-                                <!--begin::Select2-->
-                                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
-                                    data-placeholder="Status" data-kt-ecommerce-product-filter="status">
-                                    <option></option>
-                                    <option value="all">All</option>
-                                    <option value="active">Active</option>
-                                    <option value="inactive">Inactive</option>
-                                    <option value="suspend">Suspend</option>
-                                </select>
-                                <!--end::Select2-->
-                            </div>
+                        <!--begin::Toolbar-->
+                        <div class="card-toolbar m-0">
+                            <!--begin::Tab nav-->
+                            <ul class="nav nav-stretch nav-line-tabs border-transparent" role="tablist">
+                                <!--begin::Tab nav item-->
+                                <li class="nav-item" role="presentation">
+                                    <a id="kt_billing_6months_tab" class="nav-link fs-5 fw-semibold me-3 active" data-bs-toggle="tab" role="tab" href="#kt_billing_months" aria-selected="true">
+                                        Month
+                                    </a>
+                                </li>
+                                <!--end::Tab nav item-->
 
-                            <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_staff">
-                                Add Staff
-                            </a>
+                                <!--begin::Tab nav item-->
+                                <li class="nav-item" role="presentation">
+                                    <a id="kt_billing_1year_tab" class="nav-link fs-5 fw-semibold me-3" data-bs-toggle="tab" role="tab" href="#kt_billing_year" aria-selected="false" tabindex="-1">
+                                        Year
+                                    </a>
+                                </li>
+                                <!--end::Tab nav item-->
+
+                                <!--begin::Tab nav item-->
+                                <li class="nav-item" role="presentation">
+                                    <a id="kt_billing_alltime_tab" class="nav-link fs-5 fw-semibold" data-bs-toggle="tab" role="tab" href="#kt_billing_all" aria-selected="false" tabindex="-1">
+                                        All Time
+                                    </a>
+                                </li>
+                                <!--end::Tab nav item-->
+                            </ul>
+                            <!--end::Tab nav-->
                         </div>
+                        <!--end::Toolbar-->
                     </div>
+                    <!--end::Card header-->
 
-                    <div class="card-body pt-0">
-                        <!-- Clinic Table -->
-                        <!--begin::Table-->
-                        <table class="table align-middle table-row-dashed fs-6 gy-5 dt-design">
-                            <thead>
-                                <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
-                                    <th class="min-w-70px">Name</th>
-                                    <th class="text-end min-w-100px">Role</th>
-                                    <th class="text-end min-w-70px">Staff ID</th>
-                                    <th class="text-end min-w-70px">Phone</th>
-                                    <th class="text-end min-w-100px">Email</th>
-                                    <th class="text-end min-w-100px">Status</th>
-                                    <th class="text-end min-w-70px">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody class="fw-semibold text-gray-600">
-                                <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <!--begin::Thumbnail-->
-                                            <a href="#" class="symbol symbol-50px">
-                                                <span class="symbol-label"
-                                                    style="background-image:url('{{ asset('images/300-2.jpg') }}');"></span>
-                                            </a>
-                                            <!--end::Thumbnail-->
-                                            <div class="ms-5">
-                                                <!--begin::Title-->
-                                                <a href="#" class="fw-bold">Dr. John Doe</a>
-                                                <!--end::Title-->
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-end pe-0">
-                                        <span class="fw-bold">ALM#21</span>
-                                    </td>
-                                    <td class="text-end pe-0">
-                                        <span class="fw-bold">Doctor</span>
-                                    </td>
-                                    <td class="text-end pe-0">
-                                        <span class="fw-bold">+1 123-456-7890</span>
-                                    </td>
-                                    <td class="text-end pe-0">
-                                        <span class="fw-bold">john.doe@example.com</span>
-                                    </td>
-                                    <td class="text-end pe-0" data-order="Published">
-                                        <!--begin::Badges-->
-                                        <div class="badge badge-light-success">Active</div>
-                                        <!--end::Badges-->
-                                    </td>
-                                    <td class="text-end">
-                                        <a href="#"
-                                            class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
-                                            data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                            Actions
-                                            <i class="ki-outline ki-down fs-5 ms-1"></i>
-                                        </a>
-                                        <!--begin::Menu-->
-                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                            data-kt-menu="true">
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3">
-                                                    Edit
-                                                </a>
-                                            </div>
-                                            <!--end::Menu item-->
-
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3" data-kt-ecommerce-product-filter="delete_row">
-                                                    Delete
-                                                </a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                        </div>
-                                        <!--end::Menu-->
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <!--end::Table-->
-                    </div>
-
+                    <!--begin::Tab Content-->
+                    <div class="tab-content">
+                                        <!--begin::Tab panel-->
+                        <div id="kt_billing_months" class="card-body p-0 tab-pane fade show active" role="tabpanel" aria-labelledby="kt_billing_months">
+                            <!--begin::Table container-->
+                            <div class="table-responsive">
+                                <!--begin::Table-->
+                                <table class="table table-row-bordered align-middle gy-4 gs-9 dt-design">
+                                    <thead class="border-bottom border-gray-200 fs-6 text-gray-600 fw-bold bg-light bg-opacity-75">
+                                        <tr>
+                                            <td class="min-w-150px">Date</td>
+                                            <td class="min-w-250px">Description</td>
+                                            <td class="min-w-150px">Amount</td>
+                                            <td class="min-w-150px">Invoice</td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="fw-semibold text-gray-600">
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Nov 01, 2020</td>
+                                                <td><a href="#">Invoice for Ocrober 2024</a></td>
+                                                <td>$123.79</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Oct 08, 2020</td>
+                                                <td><a href="#">Invoice for September 2024</a></td>
+                                                <td>$98.03</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Aug 24, 2020</td>
+                                                <td>Paypal</td>
+                                                <td>$35.07</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Aug 01, 2020</td>
+                                                <td><a href="#">Invoice for July 2024</a></td>
+                                                <td>$142.80</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Jul 01, 2020</td>
+                                                <td><a href="#">Invoice for June 2024</a></td>
+                                                <td>$123.79</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Jun 17, 2020</td>
+                                                <td>Paypal</td>
+                                                <td>$523.09</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Jun 01, 2020</td>
+                                                <td><a href="#">Invoice for May 2024</a></td>
+                                                <td>$123.79</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                            </tbody>
+                                </table>
+                                <!--end::Table-->
+                            </div>
+                            <!--end::Table container-->
+                        </div>
+                        <!--end::Tab panel-->
+                                        <!--begin::Tab panel-->
+                        <div id="kt_billing_year" class="card-body p-0 tab-pane fade " role="tabpanel" aria-labelledby="kt_billing_year">
+                            <!--begin::Table container-->
+                            <div class="table-responsive">
+                                <!--begin::Table-->
+                                <table class="table table-row-bordered align-middle gy-4 gs-9 dt-design">
+                                    <thead class="border-bottom border-gray-200 fs-6 text-gray-600 fw-bold bg-light bg-opacity-75">
+                                        <tr>
+                                            <td class="min-w-150px">Date</td>
+                                            <td class="min-w-250px">Description</td>
+                                            <td class="min-w-150px">Amount</td>
+                                            <td class="min-w-150px">Invoice</td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="fw-semibold text-gray-600">
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Dec 01, 2021</td>
+                                                <td><a href="#">Billing for Ocrober 2024</a></td>
+                                                <td>$250.79</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Oct 08, 2021</td>
+                                                <td><a href="#">Statements for September 2024</a></td>
+                                                <td>$98.03</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Aug 24, 2021</td>
+                                                <td>Paypal</td>
+                                                <td>$35.07</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Aug 01, 2021</td>
+                                                <td><a href="#">Invoice for July 2024</a></td>
+                                                <td>$142.80</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Jul 01, 2021</td>
+                                                <td><a href="#">Statements for June 2024</a></td>
+                                                <td>$123.79</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Jun 17, 2021</td>
+                                                <td>Paypal</td>
+                                                <td>$23.09</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                            </tbody>
+                                </table>
+                                <!--end::Table-->
+                            </div>
+                            <!--end::Table container-->
+                        </div>
+                        <!--end::Tab panel-->
+                                        <!--begin::Tab panel-->
+                        <div id="kt_billing_all" class="card-body p-0 tab-pane fade " role="tabpanel" aria-labelledby="kt_billing_all">
+                            <!--begin::Table container-->
+                            <div class="table-responsive">
+                                <!--begin::Table-->
+                                <table class="table table-row-bordered align-middle gy-4 gs-9 dt-design">
+                                    <thead class="border-bottom border-gray-200 fs-6 text-gray-600 fw-bold bg-light bg-opacity-75">
+                                        <tr>
+                                            <td class="min-w-150px">Date</td>
+                                            <td class="min-w-250px">Description</td>
+                                            <td class="min-w-150px">Amount</td>
+                                            <td class="min-w-150px">Invoice</td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="fw-semibold text-gray-600">
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Nov 01, 2021</td>
+                                                <td><a href="#">Billing for Ocrober 2024</a></td>
+                                                <td>$123.79</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Aug 10, 2021</td>
+                                                <td>Paypal</td>
+                                                <td>$35.07</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Aug 01, 2021</td>
+                                                <td><a href="#">Invoice for July 2024</a></td>
+                                                <td>$142.80</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Jul 20, 2021</td>
+                                                <td><a href="#">Statements for June 2024</a></td>
+                                                <td>$123.79</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Jun 17, 2021</td>
+                                                <td>Paypal</td>
+                                                <td>$23.09</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                                    <!--begin::Table row-->
+                                            <tr>
+                                                <td>Jun 01, 2021</td>
+                                                <td><a href="#">Invoice for May 2024</a></td>
+                                                <td>$123.79</td>
+                                                <td><a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a></td>
+                                                <td class="text-right"><a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a></td>
+                                            </tr>
+                                            <!--end::Table row-->
+                                                            </tbody>
+                                </table>
+                                <!--end::Table-->
+                            </div>
+                            <!--end::Table container-->
+                        </div>
+                        <!--end::Tab panel-->
+                            </div>
+                    <!--end::Tab Content-->
                 </div>
             </div>
         </div>
@@ -264,62 +442,13 @@
 
 
 
-    <script>
-
-
-    // Function to trigger SweetAlert and close the modal
-function handleModalClose(event) {
-    // Prevent default action (form reset or immediate modal closing)
-    event.preventDefault();
-
-    Swal.fire({
-        text: "Are you sure you would like to cancel?",
-        icon: "warning",
-        showCancelButton: true,  // Show cancel button
-        buttonsStyling: false,  // Disable default styling
-        confirmButtonText: "Yes, cancel it!",  // Confirm button text
-        cancelButtonText: "No, return",  // Cancel button text
-        customClass: {
-            confirmButton: "btn btn-primary",  // Custom styling for confirm button
-            cancelButton: "btn btn-active-light",  // Custom styling for cancel button
-        },
-    }).then(function(result) {
-        var modalElement = document.getElementById("kt_modal_add_staff"); // Get the modal element
-        var modal = bootstrap.Modal.getInstance(modalElement); // Get the modal instance
-        var form = document.getElementById("kt_modal_add_staff_form"); // Get the form element
-
-        if (result.value) {
-            // If confirmed, reset the form and hide the modal
-            form.reset();  // Reset the form
-            modal.hide();  // Hide the modal
-        } else if (result.dismiss === "cancel") {
-            // If the user clicks "No, return", close the SweetAlert popup
-            Swal.close();  // Close the popup
-            Swal.fire({
-                text: "Your form has not been cancelled!",
-                icon: "error",  // Error icon to show message
-                buttonsStyling: false,  // Disable default styling
-                confirmButtonText: "Ok, got it!",  // Text for the confirmation button
-                customClass: {
-                    confirmButton: "btn btn-primary",  // Custom styling for the confirm button
-                },
-            });
-        }
-    });
-}
-
-// Attach the event listener to the close icon and discard button
-document.querySelectorAll('.kt_staff_close').forEach(function(button) {
-    button.addEventListener('click', handleModalClose);
-});
-
-
-
-
-
-
-
-
-    </script>
+  <style>
+    #billing-page .dt-toolbar .form-select.form-select-solid{
+        margin-left:27px
+    }
+    #billing-page .dt-paging{
+        margin-right: 27px;
+    }
+  </style>
 
 @endsection

@@ -176,6 +176,14 @@
                                         <label class="fs-5 fw-semibold mb-2">Email</label>
                                         <input type="mail" class="form-control form-control-solid" name="doctor_email" >
                                     </div>
+                                    <div class="col-md-6">
+                                        <label class="fs-5 fw-semibold mb-2">Who Will Give Medicine</label>
+                                        <select class="form-select form-select-solid" id="doctorStatus" name="doctor_status">
+                                            <option value="self">Self</option>
+                                            <option value="receptionist1">Receptionist 1</option>
+                                            <option value="receptionist2">Receptionist 2</option>
+                                        </select>
+                                    </div>
                                 </div>
 
                                 <div class="row mb-7">
@@ -227,6 +235,14 @@
                                         <div class="form-check form-check-custom form-check-solid me-5">
                                             <input class="form-check-input" type="checkbox" value="Friday" id="friday">
                                             <label class="form-check-label" for="friday">Friday</label>
+                                        </div>
+                                        <div class="form-check form-check-custom form-check-solid me-5">
+                                            <input class="form-check-input" type="checkbox" value="Saturday" id="saturday">
+                                            <label class="form-check-label" for="Saturday">Saturday</label>
+                                        </div>
+                                        <div class="form-check form-check-custom form-check-solid me-5">
+                                            <input class="form-check-input" type="checkbox" value="Sunday" id="sunday">
+                                            <label class="form-check-label" for="Sunday">Sunday</label>
                                         </div>
                                     </div>
                                 </div>

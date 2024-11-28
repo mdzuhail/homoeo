@@ -22,6 +22,10 @@ Route::get('/super-admin/clinic-management', function () {
     return view('pages/super-admin/clinic-management');
 });
 
+Route::get('/admin/medicine-requests', function () {
+    return view('pages/admin/medicine-requests');
+});
+
 Route::get('/admin/clinic-management', function () {
     return view('pages/admin/clinic-management');
 });

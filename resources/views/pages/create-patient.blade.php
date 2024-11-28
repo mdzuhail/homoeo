@@ -88,7 +88,7 @@
                     <div class="card-header">
                         <!--begin::Card title-->
                         <div class="card-title">
-                            <h2>Thumbnail</h2>
+                            <h2>Patient Profile</h2>
                         </div>
                         <!--end::Card title-->
                     </div>
@@ -147,7 +147,7 @@
                         <!--end::Image input-->
 
                         <!--begin::Description-->
-                        <div class="text-muted fs-7">Set the product thumbnail image. Only
+                        <div class="text-muted fs-7">Set the profile image. Only
                             *.png, *.jpg and *.jpeg image files are accepted</div>
                         <!--end::Description-->
                     </div>
@@ -242,8 +242,7 @@
                     </div>
                     <!--end::Card body-->
                 </div>
-                <!--end::Weekly sales-->
-                <!--begin::Template settings-->
+
                 <div class="card card-flush py-4">
                     <!--begin::Card header-->
                     <div class="card-header">
@@ -276,25 +275,61 @@
                         <!-- Referral source dropdown (hidden initially) -->
                         <div id="referral_source" class="mt-5" style="display:none;">
                             <label for="referral_details" class="form-label">Patient Name?</label>
-                            <select class="form-select mb-2" name="referral_details" id="referral_details">
-                                <option value="Friend">Friend</option>
-                                <option value="Family">Family</option>
-                                <option value="Colleague">Colleague</option>
-                                <option value="Other">Other</option>
+                            <select class="form-select form-select-solid" id="referral_details" name="referral_details" data-control="select2" data-hide-search="true" data-placeholder="Expiry Status">
+                                <option disabled>Expiry Status</option>
+                                <option value="all">All</option>
+                                <option value="name1">name 1</option>
+                                <option value="name1">name 1</option>
+                                <option value="name1">Expires in 3 Months</option>
+                                <option value="name1">Expires in 6 Months</option>
+                                <option value="name1">Expires in 1 Year</option>
                             </select>
                         </div>
 
                     </div>
                     <!--end::Card body-->
                 </div>
-                <!--end::Template settings-->
+
+                <div class="card card-flush py-4">
+                    <!--begin::Card header-->
+                    <div class="card-header">
+                        <!--begin::Card title-->
+                        <div class="card-title">
+                            <h2>Patient Report</h2>
+                        </div>
+                        <!--end::Card title-->
+                    </div>
+                    <!--end::Card header-->
+
+                    <!--begin::Card body-->
+                    <div class="card-body pt-0">
+                        <!--begin::Input group-->
+                        <div class="fv-row mb-2">
+                            <!--begin::Dropzone-->
+                            <button type="button" class="btn btn-primary file-button me-4">Choose File</button>
+                        <span class="spinner-border text-primary" role="status" style="display: none" id="import-loader">
+                            <span class="visually-hidden">Loading...</span>
+                        </span>
+                        <input type="file" id="file-upload" name="filename" style="display: none;" />
+                        <span id="file-name-display"></span>
+                            <!--end::Dropzone-->
+                        </div>
+                        <!--end::Input group-->
+
+                        <!--begin::Description-->
+                        <div class="text-muted fs-7 mt-3">Choose and Select the Patient Report
+                        </div>
+                        <!--end::Description-->
+                    </div>
+                    <!--end::Card body-->
+                </div>
             </div>
             <!--end::Aside column-->
 
             <!--begin::Main column-->
             <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
                 <!--begin:::Tabs-->
-                <ul
+                {{-- <ul
                     class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2">
                     <!--begin:::Tab item-->
                     <li class="nav-item">
@@ -310,7 +345,7 @@
                     </li>
                     <!--end:::Tab item-->
 
-                </ul>
+                </ul> --}}
                 <!--end:::Tabs-->
                 <!--begin::Tab content-->
                 <div class="tab-content">
@@ -332,37 +367,27 @@
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
 
-
-                                    <!--begin::Tax-->
-                                    <div class="d-flex flex-wrap gap-5">
-                                        <!--begin::Input group-->
-                                        <div class="fv-row w-100 flex-md-root">
-                                            <!--begin::Label-->
-                                            <label class="required form-label">Patient Name</label>
-                                            <!--end::Label-->
-
-                                            <!--begin::Select2-->
-                                            <input type="text" class="form-control" id="patient_name" name="patient_name" required>
-                                            <!--end::Select2-->
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="fv-row w-100">
+                                                    <label class="required form-label">Patient Name</label>
+                                                    <input type="text" class="form-control" id="patient_name" name="patient_name" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="fv-row w-100">
+                                                    <label class="form-label required">Age</label>
+                                                    <input type="number" class="form-control" id="age" name="age" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="fv-row w-100 flex-md-root">
+                                                    <label class="required form-label">Contact Number</label>
+                                                    <input type="tel" name="phone_number" class="form-control mb-2" value="" required>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <!--end::Input group-->
 
-                                        <!--begin::Input group-->
-                                        <div class="fv-row w-100 flex-md-root">
-                                            <!--begin::Label-->
-                                            <label class="form-label">Date of Birth</label>
-                                            <!--end::Label-->
-
-                                            <!--begin::Input-->
-                                            <input type="date" class="form-control" id="dob" name="dob" required>
-                                            <!--end::Input-->
-
-                                        </div>
-                                        <!--end::Input group-->
-                                    </div>
-                                    <!--end:Tax-->
-
-                                    <!--begin::Input group-->
                                     <div class="fv-row mb-10 mt-7">
                                         <!--begin::Label-->
                                         <label class="fs-6 fw-semibold mb-2">
@@ -438,41 +463,23 @@
                                         <!--end::Row-->
                                     </div>
 
-                                    <div class="d-flex flex-wrap gap-5">
-                                        <!--begin::Input group-->
-                                        <div class="fv-row w-100 flex-md-root">
-                                            <!--begin::Label-->
-                                            <label class="required form-label">Contact Number</label>
-                                            <!--end::Label-->
-
-                                            <!--begin::Select2-->
-                                            <input type="tel" name="phone_number" class="form-control mb-2" value="">
-                                            <!--end::Select2-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="fv-row w-100 ">
+                                                <label class="form-label">Occupation</label>
+                                                <input type="text" name="occupation" class="form-control mb-2" value="">
+                                            </div>
                                         </div>
-                                        <!--end::Input group-->
-
-                                        <!--begin::Input group-->
-                                        <div class="fv-row w-100 flex-md-root">
-                                            <label class="form-label">Occupation</label>
-                                            <input type="text" name="occupation" class="form-control mb-2" value="">
-
+                                        <div class="col-md-6">
+                                            <div class="fv-row w-100">
+                                                <label class="form-label">Email Address</label>
+                                                <input type="tel" name="phone_number" class="form-control mb-2" value="">
+                                            </div>
                                         </div>
+
                                     </div>
 
-                                    <div class="d-flex flex-wrap gap-5 mt-5">
-                                        <!--begin::Input group-->
-                                        <div class="fv-row w-50">
-                                            <label class="form-label">Email Address</label>
 
-                                            <!--begin::Select2-->
-                                            <input type="tel" name="phone_number" class="form-control mb-2" value="">
-                                            <!--end::Select2-->
-                                        </div>
-                                        <!--end::Input group-->
-
-                                        <!--begin::Input group-->
-
-                                    </div>
 
 
 
@@ -481,52 +488,6 @@
                                 <!--end::Card header-->
                             </div>
                             <!--end::General options-->
-                            <!--begin::Media-->
-                            <div class="card card-flush py-4">
-                                <!--begin::Card header-->
-                                <div class="card-header">
-                                    <div class="card-title">
-                                        <h2>Media</h2>
-                                    </div>
-                                </div>
-                                <!--end::Card header-->
-
-                                <!--begin::Card body-->
-                                <div class="card-body pt-0">
-                                    <!--begin::Input group-->
-                                    <div class="fv-row mb-2">
-                                        <!--begin::Dropzone-->
-                                        <div class="dropzone"
-                                            id="kt_ecommerce_add_product_media">
-                                            <!--begin::Message-->
-                                            <div class="dz-message needsclick">
-                                                <!--begin::Icon-->
-                                                <i
-                                                    class="ki-outline ki-file-up text-primary fs-3x"></i>
-                                                <!--end::Icon-->
-                                                <!--begin::Info-->
-                                                <div class="ms-4">
-                                                    <h3 class="fs-5 fw-bold text-gray-900 mb-1">
-                                                        Drop files here or click to upload.</h3>
-                                                    <span
-                                                        class="fs-7 fw-semibold text-gray-500">Upload
-                                                        up to 10 files</span>
-                                                </div>
-                                                <!--end::Info-->
-                                            </div>
-                                        </div>
-                                        <!--end::Dropzone-->
-                                    </div>
-                                    <!--end::Input group-->
-
-                                    <!--begin::Description-->
-                                    <div class="text-muted fs-7">Set the product media gallery.
-                                    </div>
-                                    <!--end::Description-->
-                                </div>
-                                <!--end::Card header-->
-                            </div>
-                            <!--end::Media-->
 
                             <!--begin::Medical History-->
                             <div class="card card-flush py-4">
@@ -658,7 +619,7 @@
                                     <!-- Existing fields here (Base Price, Discount Type, etc.) -->
 
                                     <div class="fv-row mb-10">
-                                        <label class="fs-6 fw-semibold mb-2 required form-label">Diet</label>
+                                        <label class="fs-6 fw-semibold mb-2 form-label">Diet</label>
                                         <div class="row row-cols-1 row-cols-md-3 row-cols-lg-1 row-cols-xl-3 g-9" data-kt-buttons="true" data-kt-buttons-target="[data-kt-button='true']">
                                             <div class="col">
                                                 <label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6" data-kt-button="true">
@@ -700,7 +661,7 @@
                                     </div>
 
                                     <div class="fv-row mb-10">
-                                        <label class="fs-6 fw-semibold mb-2 required form-label">Sleep Pattern</label>
+                                        <label class="fs-6 fw-semibold mb-2 form-label">Sleep Pattern</label>
                                         <div class="row row-cols-1 row-cols-md-3 row-cols-lg-1 row-cols-xl-3 g-9" data-kt-buttons="true" data-kt-buttons-target="[data-kt-button='true']">
                                             <div class="col">
                                                 <label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6" data-kt-button="true">
@@ -736,7 +697,7 @@
                                     </div>
 
                                     <div class="fv-row mb-10">
-                                        <label class="fs-6 fw-semibold mb-2 required form-label">Alcohol/Tobacco Consumption</label>
+                                        <label class="fs-6 fw-semibold mb-2 form-label">Alcohol/Tobacco Consumption</label>
                                         <div class="row row-cols-1 row-cols-md-3 row-cols-lg-1 row-cols-xl-3 g-9" data-kt-buttons="true" data-kt-buttons-target="[data-kt-button='true']">
                                             <div class="col">
                                                 <label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6" data-kt-button="true">
@@ -785,12 +746,12 @@
                                 <div class="card-body pt-0">
 
                                     <div class="fv-row mb-10">
-                                        <label class="fs-6 fw-semibold mb-2 required form-label">Main Health Concerns</label>
+                                        <label class="fs-6 fw-semibold mb-2 form-label">Main Health Concerns</label>
                                         <textarea class="form-control" name="main_health_concerns" rows="3" placeholder="Describe the main health concerns"></textarea>
                                     </div>
 
                                     <div class="fv-row mb-10">
-                                        <label class="fs-6 fw-semibold mb-2 required form-label">Duration of Symptoms</label>
+                                        <label class="fs-6 fw-semibold mb-2 form-label">Duration of Symptoms</label>
                                         <input type="text" class="form-control" name="duration_of_symptoms" placeholder="How long have the symptoms been present?">
                                     </div>
 
@@ -815,29 +776,23 @@
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
                                     <div class="fv-row mb-10">
-                                        <label class="fs-6 fw-semibold mb-2 required form-label">Previous Homoeopathic Treatment (if any)</label>
+                                        <label class="fs-6 fw-semibold mb-2 form-label">Previous Homoeopathic Treatment (if any)</label>
                                         <textarea class="form-control" name="previous_homoeopathic_treatment" rows="3" placeholder="Details of any previous homoeopathic treatments"></textarea>
                                     </div>
 
                                     <div class="fv-row mb-10">
-                                        <label class="fs-6 fw-semibold mb-2 required form-label">Previous Homoeopath Consulted</label>
+                                        <label class="fs-6 fw-semibold mb-2 form-label">Previous Homoeopath Consulted</label>
                                         <input type="text" class="form-control" name="previous_homoeopath" placeholder="Name of the previous homoeopath consulted">
                                     </div>
 
                                     <div class="fv-row mb-10">
-                                        <label class="fs-6 fw-semibold mb-2 required form-label">Past Remedies Taken</label>
+                                        <label class="fs-6 fw-semibold mb-2 form-label">Past Remedies Taken</label>
                                         <textarea class="form-control" name="past_remedies" rows="3" placeholder="List any past remedies taken"></textarea>
                                     </div>
 
                                     <div class="fv-row mb-10">
                                         <label class="fs-6 fw-semibold mb-2 form-label">Results/Response to Treatment</label>
                                         <textarea class="form-control" name="response_to_treatment" rows="3" placeholder="How did the patient respond to the past treatment?"></textarea>
-                                    </div>
-
-                                    <div class="mb-7 fv-row">
-                                        <label class="form-label">Date of Registration</label>
-                                        <input type="date" name="registration_date" class="form-control mb-2" value="<?php echo date('Y-m-d'); ?>" readonly>
-                                        <div class="text-muted fs-7">Registration date is auto-filled.</div>
                                     </div>
 
 
@@ -859,8 +814,12 @@
 
                                     <div class="mb-7 fv-row">
                                         <label class="form-label">First Registered Date</label>
-                                        <input type="date" name="registration_date" class="form-control mb-2" value="<?php echo date('Y-m-d'); ?>">
-                                        <div class="text-muted fs-7">Registration date is auto-filled.</div>
+                                        <div class="position-relative d-flex align-items-center">
+                                            <i class="ki-outline ki-calendar-8 fs-2 position-absolute mx-4"></i>
+                                            <input class="form-control form-control-solid ps-12 flatpickr-input date-picker"
+                                            placeholder="Select a date" name="registration_date" type="text" value="<?php echo date('d, M Y'); ?>">
+                                        </div>
+                                        <div class="text-muted fs-7 mt-2 pr-3">Registration date is auto-filled.</div>
                                     </div>
 
 
@@ -872,7 +831,7 @@
                     </div>
                     <!--end::Tab pane-->
 
-                    <!--begin::Tab pane-->
+                    {{-- <!--begin::Tab pane-->
                     <div class="tab-pane fade" id="kt_ecommerce_add_product_advanced"
                         role="tab-panel">
                         <div class="d-flex flex-column gap-7 gap-lg-10">
@@ -1223,7 +1182,7 @@
                             <!--end::Meta options-->
                         </div>
                     </div>
-                    <!--end::Tab pane-->
+                    <!--end::Tab pane--> --}}
 
                 </div>
                 <!--end::Tab content-->
@@ -1257,5 +1216,35 @@
     <!--end::Content container-->
 </div>
 <!--end::Content-->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Initialize Flatpickr on all inputs with the class "date-picker"
+        flatpickr('.date-picker', {
+            enableTime: false,  // Disable time selection
+            dateFormat: "d, M Y",  // Format as "day, Month Year"
+            defaultDate: "<?php echo date('d, M Y'); ?>"  // Set the current date as default
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const fileButton = document.querySelector('.file-button');
+        const fileInput = document.querySelector('#file-upload');
+        const fileNameDisplay = document.querySelector('#file-name-display');
+
+        // Bind click event to custom button
+        fileButton.addEventListener('click', function () {
+            console.log('File button clicked');
+            fileInput.click();
+        });
+
+        // Show selected file name
+        fileInput.addEventListener('change', function (event) {
+            console.log('File input changed');
+            const fileName = event.target.files[0]?.name || 'No file chosen';
+            fileNameDisplay.textContent = fileName;
+        });
+    });
+</script>
 @endsection
 
