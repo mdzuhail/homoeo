@@ -76,7 +76,7 @@
 
                          <!--begin:::Tab item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_supplier">
+                            <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_container">
                                 Container Details</a>
                         </li>
                         <!--end:::Tab item-->
@@ -450,7 +450,7 @@
 
                         <!--begin::Tab pane-->
 
-                        <div class="tab-pane fade" id="kt_supplier" role="tab-panel">
+                        <div class="tab-pane fade" id="kt_container" role="tab-panel">
                             <div class="d-flex flex-column gap-7 gap-lg-10">
 
                                 <!--begin::Inventory-->
