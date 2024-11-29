@@ -12,13 +12,12 @@
                     <!--begin::Card body-->
                     <div class="card-body p-12">
                         <!--begin::Form-->
-                        <form action="" id="kt_invoice_form" data-gtm-form-interact-id="1">
+                        <form action="" id="">
                             <!--begin::Wrapper-->
                             <div class="d-flex flex-column align-items-start flex-xxl-row">
                                 <!--begin::Input group-->
                                 <div class="d-flex align-items-center flex-equal fw-row me-4 order-2"
-                                    data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                    data-bs-original-title="Specify invoice date" data-kt-initialized="1">
+                                    data-bs-toggle="tooltip" data-bs-trigger="hover">
                                     <!--begin::Date-->
                                     <div class="fs-6 fw-bold text-gray-700 text-nowrap">Phone:</div>
                                     <!--end::Date-->
@@ -39,7 +38,7 @@
                                     <span class="fs-2x fw-bold text-gray-800">Invoice #</span>
                                     <input type="text"
                                         class="form-control form-control-flush fw-bold text-muted fs-3 w-125px"
-                                        value="2021001" placehoder="..." fdprocessedid="8dqybh">
+                                        value="2021001" placehoder="...">
                                 </div>
                                 <!--end::Input group-->
 
@@ -56,7 +55,7 @@
                                         <!--begin::Datepicker-->
                                         <input class="form-control form-control-transparent fw-bold pe-5 flatpickr-input"
                                             placeholder="Select date" name="invoice_due_date" type="text"
-                                            readonly="readonly" fdprocessedid="6pls8">
+                                            readonly="readonly">
                                         <!--end::Datepicker-->
 
                                         <!--begin::Icon-->
@@ -81,12 +80,12 @@
                                 <!--begin::Table wrapper-->
                                 <div class="table-responsive mb-10">
                                     <!--begin::Table-->
-                                    <table class="table g-5 gs-0 mb-0 fw-bold text-gray-700" data-kt-element="items">
+                                    <table class="table g-5 gs-0 mb-0 fw-bold text-gray-700">
                                         <!--begin::Table head-->
                                         <thead>
                                             <tr class="border-bottom fs-7 fw-bold text-gray-700 text-uppercase">
                                                 <th class="min-w-300px w-475px">Medicine Name</th>
-                                                <th class="min-w-100px w-100px">Quantity/Unit </th>
+                                                <th class="min-w-100px w-100px">Quantity/Unit</th>
                                                 <th class="min-w-150px w-150px">Selling Price</th>
                                                 <th class="min-w-100px w-150px text-end">MRP</th>
                                                 <th class="min-w-75px w-75px text-end">Action</th>
@@ -95,41 +94,32 @@
                                         <!--end::Table head-->
 
                                         <!--begin::Table body-->
-                                        <tbody>
-                                            <tr class="border-bottom border-bottom-dashed" data-kt-element="item">
+                                        <tbody id="hp-items-body">
+                                            <!-- Default Row (first row to show when the page loads) -->
+                                            <tr class="border-bottom border-bottom-dashed">
                                                 <td class="pe-7">
-                                                    <select class="form-select form-select-solid" data-control="select2" data-placeholder="supplier_name" name="supplier_name">
+                                                    <select class="form-select form-select-solid hp-item-name" name="medicine_name">
                                                         <option value="not-a-patients">Consultation</option>
                                                         <option value="2">Option 2</option>
                                                     </select>
-
-                                                    <input type="text" class="form-control form-control-solid mt-3"
-                                                        name="description[]" placeholder="Description"
-                                                        fdprocessedid="1oy015">
+                                                    <input type="text" class="form-control form-control-solid mt-3 hp-item-description" name="medicine_description" placeholder="Description">
                                                 </td>
-
                                                 <td class="ps-0">
-                                                    <select class="form-select form-select-solid" data-control="select2" data-placeholder="quantity" name="quantity">
-                                                        <option value="not-a-patients">Full Bottle</option>
+                                                    <select class="form-select form-select-solid hp-item-quantity" name="medicine_quantity">
+                                                        <option value="1">Full Bottle</option>
                                                         <option value="2">Option 2</option>
                                                     </select>
                                                 </td>
-
                                                 <td>
-                                                    <input type="text" class="form-control form-control-solid text-end"
-                                                        name="price[]" placeholder="0.00" value="0.00"
-                                                        data-kt-element="price" fdprocessedid="oqfuz">
+                                                    <input type="number" class="form-control form-control-solid text-end hp-item-price" name="medicine_price" placeholder="0.00" >
                                                 </td>
-
                                                 <td class="pt-8 text-end text-nowrap">
-                                                    $<span data-kt-element="total">0.00</span>
+                                                    $<span class="hp-item-total">0.00</span>
                                                 </td>
-
                                                 <td class="pt-5 text-end">
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-icon btn-active-color-primary"
-                                                        data-kt-element="remove-item" fdprocessedid="734mh9">
-                                                        <i class="ki-outline ki-trash fs-3"></i> </button>
+                                                    <a type="button" class="btn btn-sm btn-icon btn-active-color-primary hp-remove-item">
+                                                        <i class="ki-outline ki-trash fs-3"></i>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -139,106 +129,47 @@
                                         <tfoot>
                                             <tr class="border-top border-top-dashed align-top fs-6 fw-bold text-gray-700">
                                                 <th class="text-primary">
-                                                    <button class="btn btn-link py-1" data-kt-element="add-item"
-                                                        fdprocessedid="hc17iq">Add item</button>
+                                                    <a class="btn btn-link py-1" id="hp-add-item">Add item</a>
                                                 </th>
-
                                                 <th colspan="2" class="border-bottom border-bottom-dashed ps-0">
                                                     <div class="d-flex flex-column align-items-start">
                                                         <div class="fs-5">Subtotal</div>
-
-                                                        <button class="btn btn-link py-1" data-bs-toggle="tooltip"
-                                                            data-bs-trigger="hover" data-bs-original-title="Coming soon"
-                                                            data-kt-initialized="1" fdprocessedid="vqpwf3g">Add
-                                                            tax</button>
-
-
                                                     </div>
                                                 </th>
-
                                                 <th colspan="2" class="border-bottom border-bottom-dashed text-end">
-                                                    $<span data-kt-element="sub-total">0.00</span>
+                                                    $<span id="hp-sub-total">0.00</span>
                                                 </th>
                                             </tr>
 
-                                            <tr class=" text-gray-500">
+                                            <tr class="text-gray-500">
                                                 <th></th>
                                                 <th colspan="2" class="fs-4 ps-0">Discount</th>
-
                                                 <th colspan="2" class="text-end fs-4 text-nowrap">
                                                     $
                                                     <div class="d-inline-block">
-                                                        <input type="text"
-                                                               class="form-control form-control-solid w-70px"
-                                                               min="7"
-                                                               name="quantity[]"
-                                                               placeholder="0">
+                                                        <input type="text" class="form-control form-control-solid w-70px" id="hp-discount" placeholder="0">
                                                     </div>
                                                 </th>
                                             </tr>
 
                                             <tr class="align-top fw-bold text-gray-700">
                                                 <th></th>
-
                                                 <th colspan="2" class="fs-4 ps-0">Total</th>
-
                                                 <th colspan="2" class="text-end fs-4 text-nowrap">
-                                                    $<span data-kt-element="grand-total">0.00</span>
+                                                    $<span id="hp-grand-total">0.00</span>
                                                 </th>
                                             </tr>
                                         </tfoot>
                                         <!--end::Table foot-->
                                     </table>
                                 </div>
+
+
+
+
                                 <!--end::Table-->
 
-                                <!--begin::Item template-->
-                                <table class="table d-none" data-kt-element="item-template">
-                                    <tbody>
-                                        <tr class="border-bottom border-bottom-dashed" data-kt-element="item">
-                                            <td class="pe-7">
-                                                <input type="text" class="form-control form-control-solid mb-2"
-                                                    name="name[]" placeholder="Item name">
 
-                                                <input type="text" class="form-control form-control-solid"
-                                                    name="description[]" placeholder="Description">
-                                            </td>
-
-                                            <td class="ps-0">
-                                                <input type="text" class="form-control form-control-solid"
-                                                    min="1" name="quantity[]" placeholder="1"
-                                                    data-kt-element="quantity">
-                                            </td>
-
-                                            <td>
-                                                <input type="text" class="form-control form-control-solid text-end"
-                                                    name="price[]" placeholder="0.00" data-kt-element="price">
-                                            </td>
-
-                                            <td class="pt-8 text-end">
-                                                $<span data-kt-element="total">0.00</span>
-                                            </td>
-
-                                            <td class="pt-5 text-end">
-                                                <button type="button"
-                                                    class="btn btn-sm btn-icon btn-active-color-primary"
-                                                    data-kt-element="remove-item">
-                                                    <i class="ki-outline ki-trash fs-3"></i> </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                                <table class="table d-none" data-kt-element="empty-template">
-                                    <tbody>
-                                        <tr data-kt-element="empty">
-                                            <th colspan="5" class="text-muted text-center py-10">
-                                                No items
-                                            </th>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <!--end::Item template-->
 
                                 <!--begin::Notes-->
                                 <div class="mb-0">
@@ -262,11 +193,7 @@
             <!--begin::Sidebar-->
             <div class="flex-lg-auto min-w-lg-300px">
                 <!--begin::Card-->
-                <div class="card" data-kt-sticky="true" data-kt-sticky-name="invoice"
-                    data-kt-sticky-offset="{default: false, lg: '200px'}"
-                    data-kt-sticky-width="{lg: '250px', lg: '300px'}" data-kt-sticky-left="auto"
-                    data-kt-sticky-top="150px" data-kt-sticky-animation="false" data-kt-sticky-zindex="95"
-                    style="">
+                <div class="card">
 
                     <!--begin::Card body-->
                     <div class="card-body p-10">
@@ -345,7 +272,7 @@
                             <!--end::Row-->
 
                             <button type="submit" href="#" class="btn btn-primary w-100"
-                                id="kt_invoice_submit_button" fdprocessedid="0am565"><i
+                                id="kt_invoice_submit_button"><i
                                     class="ki-outline ki-triangle fs-3"></i> Send Invoice
                             </button>
                         </div>
@@ -359,4 +286,132 @@
         </div>
         <!--end::Layout-->
     </div>
+
+  <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to update totals
+    function updateTotals() {
+        let subtotal = 0;
+
+        // Loop through each row to calculate the subtotal
+        const rows = document.querySelectorAll('#hp-items-body tr');
+        rows.forEach(function(row) {
+            updateItemTotal(row); // Update the total for each item
+            const totalElement = row.querySelector('.hp-item-total');
+            const total = parseFloat(totalElement.textContent) || 0;
+            subtotal += total;
+        });
+
+        // Update subtotal
+        document.getElementById('hp-sub-total').textContent = subtotal.toFixed(2);
+
+        // Update grand total after discount
+        const discount = parseFloat(document.getElementById('hp-discount').value) || 0;
+        const grandTotal = subtotal - discount;
+        document.getElementById('hp-grand-total').textContent = grandTotal.toFixed(2);
+    }
+
+    // Function to update item total (price * quantity)
+    function updateItemTotal(row) {
+        const priceInput = row.querySelector('.hp-item-price');
+        const quantityInput = row.querySelector('.hp-item-quantity');
+        const totalElement = row.querySelector('.hp-item-total');
+
+        const price = parseFloat(priceInput.value) || 0;
+        const quantity = parseInt(quantityInput.value) || 0;
+
+        const total = price * quantity;
+        totalElement.textContent = total.toFixed(2);
+    }
+
+    // Add item button click event
+    const addItemButton = document.getElementById('hp-add-item');
+    addItemButton.addEventListener('click', function() {
+        const tableBody = document.getElementById('hp-items-body');
+        const newRow = document.createElement('tr');
+        newRow.classList.add('border-bottom', 'border-bottom-dashed');
+
+        // Add content to the new row
+        newRow.innerHTML = `
+            <td class="pe-7">
+                <select class="form-select form-select-solid hp-item-name" name="medicine_name">
+                    <option value="not-a-patients">Consultation</option>
+                    <option value="2">Option 2</option>
+                </select>
+                <input type="text" class="form-control form-control-solid mt-3 hp-item-description" name="medicine_description" placeholder="Description">
+            </td>
+            <td class="ps-0">
+                <select class="form-select form-select-solid hp-item-quantity" name="medicine_quantity">
+                    <option value="1">Full Bottle</option>
+                    <option value="2">Option 2</option>
+                </select>
+            </td>
+            <td>
+                <input type="number" class="form-control form-control-solid text-end hp-item-price" name="medicine_price" placeholder="0.00" value="0" step="0.01">
+            </td>
+            <td class="pt-8 text-end text-nowrap">
+                $<span class="hp-item-total">0.00</span>
+            </td>
+            <td class="pt-5 text-end">
+                <a type="button" class="btn btn-sm btn-icon btn-active-color-primary hp-remove-item">
+                    <i class="ki-outline ki-trash fs-3"></i>
+                </a>
+            </td>
+        `;
+
+        // Append the new row to the table body
+        tableBody.appendChild(newRow);
+
+        // Attach the price change event handler
+        attachPriceChangeHandler(newRow);
+
+        // Attach the remove item event handler
+        attachRemoveItemHandler(newRow);
+
+        // Update totals after adding a new item
+        updateTotals();
+    });
+
+    // Function to attach the price change event handler
+    function attachPriceChangeHandler(row) {
+        const priceInput = row.querySelector('.hp-item-price');
+        priceInput.addEventListener('input', function() {
+            updateItemTotal(row);
+            updateTotals();
+        });
+    }
+
+    // Function to attach the remove button click event
+    function attachRemoveItemHandler(row) {
+        const removeButton = row.querySelector('.hp-remove-item');
+        removeButton.addEventListener('click', function() {
+            row.remove();
+            updateTotals();
+        });
+    }
+
+    // Handle input in the first row to trigger the update of the total
+    const firstRow = document.querySelector('#hp-items-body tr');
+    if (firstRow) {
+        // Attach the price change event handler to the first row
+        const firstPriceInput = firstRow.querySelector('.hp-item-price');
+        firstPriceInput.addEventListener('input', function() {
+            updateItemTotal(firstRow); // Update the first row's total
+            updateTotals(); // Recalculate the totals
+        });
+
+        // Update the totals for the first row immediately
+        updateItemTotal(firstRow); // Update the first row's total
+        updateTotals(); // Recalculate the total and subtotal
+    }
+
+    // Discount change event
+    const discountInput = document.getElementById('hp-discount');
+    discountInput.addEventListener('input', updateTotals);
+});
+
+
+  </script>
+
 @endsection

@@ -202,6 +202,10 @@
                                         <label class="required fs-5 fw-semibold mb-2">Experience (Years)</label>
                                         <input type="number" class="form-control form-control-solid" name="doctor_experience">
                                     </div>
+                                    <div class="col-md-6">
+                                        <label class="required fs-5 fw-semibold mb-2">Consultation Fee</label>
+                                        <input type="number" class="form-control form-control-solid" name="doctor_experience">
+                                    </div>
                                 </div>
 
                                 <div class="row mb-7">
