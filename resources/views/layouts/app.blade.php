@@ -108,6 +108,7 @@
 
 
 </body>
+@stack('js')
 
 </html>
 

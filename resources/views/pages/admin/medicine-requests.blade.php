@@ -12,7 +12,6 @@
                     <!--begin::Card body-->
                     <div class="card-body p-12">
                         <!--begin::Form-->
-                        <form action="" id="">
                             <!--begin::Wrapper-->
                             <div class="d-flex flex-column align-items-start flex-xxl-row">
                                 <!--begin::Input group-->
@@ -116,7 +115,7 @@
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <input type="number" class="form-control form-control-solid text-end hp-item-price" name="medicine_price" placeholder="0.00" value="0">
+                                                    <input type="number" class="form-control form-control-solid text-end hp-item-price" name="medicine_price" placeholder="0.00">
                                                 </td>
                                                 <td>
                                                     <input type="number" class="form-control form-control-solid text-end hp-item-unit" name="medicine_unit" value="1">
@@ -188,9 +187,7 @@
                                 </div>
                                 <!--end::Notes-->
                             </div>
-                            <!--end::Wrapper-->
-                        </form>
-                        <!--end::Form-->
+
                     </div>
                     <!--end::Card body-->
                 </div>
@@ -245,7 +242,7 @@
                                 <input class="form-check-input" type="checkbox" id="due-amount-checkbox" value="">
                             </label>
 
-                            <input class="form-control form-control-solid text-end mb-7" id="due-amount" type="text" value="" style="display:none;">
+                            <input class="form-control form-control-solid text-start mb-7" id="due-amount" type="text" name="payemnt-due-amount" value="" style="display:none;">
                             <!--end::Option-->
 
 
@@ -257,7 +254,7 @@
                                 <input class="form-check-input" type="checkbox" id="notes-checkbox" value="">
                             </label>
 
-                            <textarea class="form-control form-control-solid text-end mb-7 mt-5" id="notes-input" type="text" value="" style="display:none;"></textarea>
+                            <textarea class="form-control form-control-solid text-start mb-7 mt-5" name="payment-notes" id="notes-input" type="text" value="" style="display:none;"></textarea>
                             <!--end::Option-->
                         </div>
                         <!--end::Input group-->
@@ -356,27 +353,11 @@
 
 
 
-
+@push('js')
 
   <script>
 
-    document.getElementById('notes-checkbox').addEventListener('change', function() {
-        var notesInput = document.getElementById('notes-input');
-        if (this.checked) {
-            notesInput.style.display = 'block';  // Show input field
-        } else {
-            notesInput.style.display = 'none';  // Hide input field
-        }
-    })
 
-    document.getElementById('due-amount-checkbox').addEventListener('change', function() {
-        var dueAmountInput = document.getElementById('due-amount');
-        if (this.checked) {
-            dueAmountInput.style.display = 'block';  // Show input field
-        } else {
-            dueAmountInput.style.display = 'none';  // Hide input field
-        }
-    });
 
 document.addEventListener('DOMContentLoaded', function() {
     // Function to update the total of a single item row
@@ -473,12 +454,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle the remove item button click event
     hpItemsBody.addEventListener('click', function(event) {
-        if (event.target && event.target.matches('.hp-remove-item')) {
-            const row = event.target.closest('tr');
+    const target = event.target;
+
+    if (target && (target.matches('.hp-remove-item') || target.closest('.hp-remove-item'))) {
+        const row = target.closest('tr');
+        if (row) {
             row.remove(); // Remove the item row
-            updateTotals(); // Recalculate totals after removing an item
+            updateTotals(); // Update totals
         }
-    });
+    }
+});
 
     // Handle discount input field
     const discountInput = document.getElementById('hp-discount');
@@ -621,42 +606,86 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Save payment (if needed)
     savePaymentBtn.addEventListener('click', function () {
-        const selectedBills = document.querySelectorAll('.payBill:checked');
-        let totalPayment = 0;
+    const selectedBills = document.querySelectorAll('.payBill:checked');
+    let totalPayment = 0;
 
-        if (paymentTypeSelect.value === 'partial') {
-            let remainingAmount = parseFloat(partialAmount.value);
-            if (isNaN(remainingAmount) || remainingAmount <= 0) {
-                alert('Please enter a valid partial amount.');
-                return;
+    // Show SweetAlert confirmation dialog
+    Swal.fire({
+        title: "Confirm Payment",
+        text: "Are you sure the payment is paid by the patient? This action cannot be undone",
+        icon: "warning",
+        showCancelButton: true,  // Show cancel button
+        buttonsStyling: false,  // Disable default styling
+        confirmButtonText: "Yes, cancel it!",  // Confirm button text
+        cancelButtonText: "No, return",  // Cancel button text
+        customClass: {
+            confirmButton: "btn btn-primary",  // Custom styling for confirm button
+            cancelButton: "btn btn-active-light",  // Custom styling for cancel button
+        },
+
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Payment logic
+            if (paymentTypeSelect.value === 'partial') {
+                let remainingAmount = parseFloat(partialAmount.value);
+                if (isNaN(remainingAmount) || remainingAmount <= 0) {
+                    Swal.fire("Error", "Please enter a valid partial amount.", "error");
+                    return;
+                }
+
+                // Reduce the bill amounts based on partial amount entered
+                selectedBills.forEach(bill => {
+                    const billAmount = parseFloat(bill.dataset.amount);
+                    if (remainingAmount >= billAmount) {
+                        remainingAmount -= billAmount; // Fully pay the bill
+                        bill.checked = false; // Uncheck after full payment
+                    } else {
+                        bill.dataset.amount = (billAmount - remainingAmount).toString();
+                        remainingAmount = 0;
+                    }
+                });
+            } else if (paymentTypeSelect.value === 'full') {
+                // For full payment, mark all selected bills as paid
+                selectedBills.forEach(bill => {
+                    bill.checked = false; // Uncheck after payment
+                });
             }
 
-            // Reduce the bill amounts based on partial amount entered
-            selectedBills.forEach(bill => {
-                const billAmount = parseFloat(bill.dataset.amount);
-                if (remainingAmount >= billAmount) {
-                    remainingAmount -= billAmount; // Fully pay the bill
-                    bill.checked = false; // Uncheck after full payment
-                } else {
-                    bill.dataset.amount = (billAmount - remainingAmount).toString();
-                    remainingAmount = 0;
-                }
-            });
-        } else if (paymentTypeSelect.value === 'full') {
-            // For full payment, mark all selected bills as paid
-            selectedBills.forEach(bill => {
-                bill.checked = false; // Uncheck after payment
-            });
+            // Update total amount and notify user
+            updateTotalAmount();
+            Swal.fire("Payment Saved", "Your payment has been successfully recorded.", "success");
         }
-        updateTotalAmount(); // Update total after saving
-        alert('Payment Saved');
     });
+});
+
 
     // Initial setup: Ensure checkboxes are visible and total is updated for full payment
     paymentTypeSelect.value = 'full'; // Default to full
     paymentTypeSelect.dispatchEvent(new Event('change')); // Trigger change event on load
 });
+
+
+document.getElementById('notes-checkbox').addEventListener('change', function() {
+        var notesInput = document.getElementById('notes-input');
+        if (this.checked) {
+            notesInput.style.display = 'block';  // Show input field
+        } else {
+            notesInput.style.display = 'none';  // Hide input field
+        }
+    })
+
+    document.getElementById('due-amount-checkbox').addEventListener('change', function() {
+        var dueAmountInput = document.getElementById('due-amount');
+        if (this.checked) {
+            dueAmountInput.style.display = 'block';  // Show input field
+        } else {
+            dueAmountInput.style.display = 'none';  // Hide input field
+        }
+    });
 </script>
+
+
+@endpush
 
 
 @endsection

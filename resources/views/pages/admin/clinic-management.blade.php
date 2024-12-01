@@ -4,10 +4,10 @@
 @section('content')
     <div class="p-5">
 
-        <div id="" class="app-content  app-content-stretch ">
+        <div class="app-content  app-content-stretch ">
 
 
-            <div id="" class="app-container  container-fluid ">
+            <div class="app-container  container-fluid ">
                 <div class="card card-flush">
                     <div class="card-header align-items-center py-5 gap-2 gap-md-5">
                         <div class="card-title">
@@ -166,7 +166,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label class="required fs-5 fw-semibold mb-2">Phone</label>
-                                        <input type="tel" class="form-control form-control-solid" id="doctor_phone" name="doctor_phone" pattern="^\+91[0-9]{10}$" placeholder="e.g., +91 7448874485" value="+91" maxlength="13" required>
+                                        <input type="tel" class="form-control form-control-solid" id="doctor_phone" name="doctor_phone" placeholder="e.g., 7448874485"  maxlength="10">
 
                                     </div>
                                 </div>
@@ -295,20 +295,71 @@
                                     <div class="row mb-5">
                                         <div class="col-md-6">
                                             <label class="fs-5 fw-semibold mb-2">Username</label>
-                                            <input type="text" id="doctorUsername" class="form-control form-control-solid" id="doctorUsername" name="doctor_username" readonly>
-                                            <button type="button" onclick="copyToClipboard('doctorUsername')">Copy</button><br><br>
+                                            <div class="card card-bordered">
+                                                <div class="card-body">
+                                                    <!--begin::Row-->
+                                                    <div class="d-flex align-items-center flex-wrap position-relative">
+                                                        <!--begin::Input-->
+                                                        <input
+                                                            type="text"
+                                                            id="doctorUsername"
+                                                            class="form-control form-control-solid me-5"
+                                                            name="doctor_username"
+                                                            readonly>
+                                                        <!--end::Input-->
+
+                                                        <!--begin::Button-->
+                                                        <button
+                                                            class="btn btn-icon btn-sm btn-light"
+                                                            data-clipboard-target="#doctorUsername"
+                                                            style="position: absolute; right: 23px;">
+                                                            <i class="ki-duotone ki-copy fs-2 text-muted"></i>
+                                                        </button>
+                                                        <!--end::Button-->
+                                                    </div>
+                                                    <!--end::Row-->
+                                                </div>
+                                            </div>
                                         </div>
+
                                         <div class="col-md-6">
                                             <label class="fs-5 fw-semibold mb-2">Password</label>
-                                            <input type="password" id="doctorPassword" class="form-control form-control-solid" id="doctorPassword" name="doctor_password" readonly>
-                                            <button type="button" onclick="copyToClipboard('doctorPassword')">Copy</button><br><br>
+                                            <div class="card card-bordered">
+                                                <div class="card-body">
+                                                    <!--begin::Row-->
+                                                    <div class="d-flex align-items-center flex-wrap position-relative">
+                                                        <!--begin::Input-->
+                                                        <input
+                                                            type="text"
+                                                            id="doctorPassword"
+                                                            class="form-control form-control-solid me-5"
+                                                            name="doctor_password"
+                                                            readonly
+                                                        >
+                                                        <!--end::Input-->
+
+                                                        <!--begin::Button-->
+                                                        <button
+                                                            class="btn btn-icon btn-sm btn-light"
+                                                            data-clipboard-target="#doctorPassword"
+                                                            style="position: absolute; right: 23px;">
+                                                            <i class="ki-duotone ki-copy fs-2 text-muted"></i>
+                                                        </button>
+                                                        <!--end::Button-->
+                                                    </div>
+                                                    <!--end::Row-->
+                                                </div>
+                                            </div>
                                         </div>
+
                                     </div>
                                     <div class="form-check form-check-solid">
                                         <input class="form-check-input" type="checkbox" id="doctorSendCredentials" name="doctor_send_credentials" value="yes">
                                         <label class="form-check-label fs-5 fw-semibold" for="doctorSendCredentials">Send credentials via email</label>
                                     </div>
                                 </div>
+
+
 
 
                             </div>
@@ -323,7 +374,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label class="required fs-5 fw-semibold mb-2">Phone</label>
-                                        <input type="tel" class="form-control form-control-solid" id="receptionist_phone" name="receptionist_phone" pattern="^\+91[0-9]{10}$" placeholder="e.g., +91 7448874485" value="+91" maxlength="13" required>
+                                        <input type="tel" class="form-control form-control-solid" id="receptionist_phone" name="receptionist_phone" placeholder="e.g.,7448874485"  maxlength="10">
                                     </div>
                                 </div>
 
@@ -366,14 +417,56 @@
                                     <h3 class="fw-bold mb-5">Login Credentials</h3>
                                     <div class="row mb-5">
                                         <div class="col-md-6">
+
                                             <label class="fs-5 fw-semibold mb-2">Username</label>
-                                            <input type="text" class="form-control form-control-solid" id="receptionistUsername" name="receptionist_username" readonly>
-                                            <button type="button" onclick="copyToClipboard('receptionistUsername')">Copy</button><br><br>
+                                            <div class="card card-bordered">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center flex-wrap position-relative">
+                                                        <input
+                                                            type="text"
+                                                            id="receptionistUsername"
+                                                            class="form-control form-control-solid me-5"
+                                                            name="receptionist_username"
+                                                            readonly
+                                                        >
+
+                                                        <button
+                                                            type="button"
+                                                            class="btn btn-icon btn-sm btn-light position-absolute"
+                                                            style="top: 50%; right: 10px; transform: translateY(-50%);"
+                                                            data-clipboard-target="#receptionistUsername">
+                                                            <i class="ki-duotone ki-copy fs-2 text-muted"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+
+
+
                                         <div class="col-md-6">
                                             <label class="fs-5 fw-semibold mb-2">Password</label>
-                                            <input type="password" class="form-control form-control-solid" id="receptionistPassword" name="receptionist_password" readonly>
-                                            <button type="button" onclick="copyToClipboard('receptionistPassword')">Copy</button><br><br>
+                                            <div class="card card-bordered">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center flex-wrap position-relative">
+                                                        <input
+                                                            type="text"
+                                                            id="receptionistPassword"
+                                                            class="form-control form-control-solid me-5"
+                                                            name="receptionist_password"
+                                                            readonly
+                                                        >
+                                                         <button
+                                                        type="button"
+                                                        class="btn btn-icon btn-sm btn-light position-absolute"
+                                                        style="top: 50%; right: 10px; transform: translateY(-50%);"
+                                                        data-clipboard-target="#receptionistPassword">
+                                                        <i class="ki-duotone ki-copy fs-2 text-muted"></i>
+                                                    </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="form-check form-check-solid">
@@ -436,14 +529,7 @@
         };
 
         // Copy to clipboard function
-        const copyToClipboard = (fieldId) => {
-            const field = document.getElementById(fieldId);
-            field.select(); // Select the text
-            field.setSelectionRange(0, 99999); // For mobile devices
-            navigator.clipboard.writeText(field.value)
-                .then(() => alert(`Copied: ${field.value}`))
-                .catch(err => console.error('Failed to copy text:', err));
-        };
+
 
         // Attach event listeners
         document.addEventListener("DOMContentLoaded", () => {
@@ -473,6 +559,52 @@
                 generateCredentials(receptionistNameField, receptionistPhoneField, receptionistUsernameField, receptionistPasswordField)
             );
         });
+
+  // Toast Message Function
+const showToast = (message) => {
+    const toastContainer = document.getElementById("toastContainer");
+    const toast = document.createElement("div");
+    toast.className = "toast-message";
+    toast.innerText = message;
+    toastContainer.appendChild(toast);
+
+    // Remove the toast after 3 seconds
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+};
+
+// Copy Function with Input Highlight
+const copyToClipboard = (targetId) => {
+    const input = document.querySelector(targetId);
+
+    // For mobile compatibility and better selection
+    input.select();
+    input.setSelectionRange(0, 99999); // For mobile compatibility
+
+    // Copy text to clipboard
+    document.execCommand("copy");
+
+    // Highlight the input field to show that text is copied
+    input.classList.add("copied");
+    setTimeout(() => input.classList.remove("copied"), 2000);
+
+    // Show toast message
+    showToast("Copied to clipboard!");
+};
+
+// Event Listeners for Copy Buttons
+document.querySelectorAll("[data-clipboard-target]").forEach(button => {
+    button.addEventListener("click", (event) => {
+        event.preventDefault();  // Prevent any default action (page reload)
+
+        const targetId = event.target.getAttribute("data-clipboard-target");
+        copyToClipboard(targetId);
+    });
+});
+
+
+
     </script>
 
 
